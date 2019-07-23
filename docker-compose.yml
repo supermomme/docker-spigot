@@ -5,4 +5,7 @@ services:
     ports:
       - "25565:25565"
     volumes:
-      - ./volumes/minecraft:/usr/src/minecraft
+      - ./volumes/minecraft:/minecraft
+    environment:
+      - REV=1.14.4
+      - FORCE_REBUILD=false # DELETES MINECRAFT VOLUME AND REBUILDS spigot.jar
