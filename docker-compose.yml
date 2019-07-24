@@ -9,3 +9,4 @@ services:
     environment:
       - REV=1.14.4
       - FORCE_REBUILD=false # DELETES MINECRAFT VOLUME AND REBUILDS spigot.jar
+      - EULA=true
