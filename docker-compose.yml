@@ -2,11 +2,21 @@ version: '3'
 services:
   spigot:
     build: ./spigot-server
+    container_name: spigot
     ports:
       - "25565:25565"
+      - "25575:25575"
     volumes:
       - ./volumes/minecraft:/minecraft
     environment:
       - REV=1.14.4
       - FORCE_REBUILD=false # DELETES MINECRAFT VOLUME AND REBUILDS spigot.jar
       - EULA=true
+  web-rcon:
+    build: ./web-rcon
+    container_name: web-rcon
+    ports:
+      - "8080:3000"
+    environment:
+      - WEB_PASSWORD=test
+      - RCON_HOST=spigot

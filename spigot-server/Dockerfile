@@ -45,6 +45,9 @@ ENV RCON=true \
     FORCE_REBUILD=false \
     EULA=false
 
+EXPOSE 25565
+EXPOSE 25575
+
 CMD trap 'exit' INT; ./run.sh
 
 

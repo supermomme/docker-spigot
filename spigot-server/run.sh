@@ -69,6 +69,9 @@ if [ "$SET_SERVER_PROPERTIES" = true ]; then
   setServerProp "resource-pack-sha1" "$RPACK_SHA1"
   setServerProp "network-compression-threshold" "$NETWORK_COMPRESSION_THRESHOLD"
   setServerProp "gamemode" "$GAMEMODE"
+  setServerProp "rcon.port" "$RCON_PORT"
+  setServerProp "rcon.password" "$RCON_PASSWORD"
+  setServerProp "enable-rcon" "$RCON"
 fi
 
 

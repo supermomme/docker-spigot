@@ -1,0 +1,19 @@
+{
+  "name": "web-rcon",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "exit-hook": "^2.2.0",
+    "express": "4.13.4",
+    "rcon": "^1.0.3",
+    "socket.io": "^2.2.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "serve": "nodemon index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
