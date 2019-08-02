@@ -43,10 +43,12 @@ ENV RCON=true \
     NETWORK_COMPRESSION_THRESHOLD=256 \
     SET_SERVER_PROPERTIES=true \
     FORCE_REBUILD=false \
-    EULA=false
+    EULA=false \
+    PLUGIN_DYNMAP=true
 
 EXPOSE 25565
 EXPOSE 25575
+EXPOSE 8123
 
 CMD trap 'exit' INT; ./run.sh
 

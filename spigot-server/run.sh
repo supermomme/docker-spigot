@@ -74,54 +74,17 @@ if [ "$SET_SERVER_PROPERTIES" = true ]; then
   setServerProp "enable-rcon" "$RCON"
 fi
 
-
-# spawn-protection=16
-# max-tick-time=60000
-# query.port=25565
-# generator-settings=
-# force-gamemode=false
-# allow-nether=true
-# enforce-whitelist=false
-# gamemode=survival
-# broadcast-console-to-ops=true
-# enable-query=false
-# player-idle-timeout=0
-# difficulty=easy
-# broadcast-rcon-to-ops=true
-# spawn-monsters=true
-# op-permission-level=4
-# pvp=true
-# snooper-enabled=true
-# level-type=default
-# hardcore=false
-# enable-command-block=false
-# network-compression-threshold=256
-# max-players=20
-# max-world-size=29999984
-# resource-pack-sha1=
-# function-permission-level=2
-# rcon.port=25575
-# server-port=25565
-# debug=false
-# server-ip=
-# spawn-npcs=true
-# allow-flight=false
-# level-name=world
-# view-distance=10
-# resource-pack=
-# spawn-animals=true
-# white-list=false
-# rcon.password=
-# generate-structures=true
-# online-mode=true
-# max-build-height=256
-# level-seed=
-# prevent-proxy-connections=false
-# use-native-transport=true
-# motd=A Minecraft Server
-# enable-rcon=false
-
 # PLUGINS
+
+mkdir -p $SPIGOT/plugins
+
+if [ "$PLUGIN_DYNMAP" = true ] && [ ! -f $SPIGOT/plugins/dynmap.jar ]; then
+  cd $SPIGOT/plugins
+  echo "Download DYNMAP"
+  wget -O $SPIGOT/plugins/dynmap.jar http://mikeprimm.com/dynmap/builds/dynmap/Dynmap-HEAD-spigot.jar
+  wget -O $SPIGOT/plugins/dynmap-mobs.jar http://mikeprimm.com/dynmap/builds/dynmap-mobs/dynmap-mobs-HEAD.jar
+  cd $SPIGOT
+fi
 
 echo "RUN!"
 java -Xms512M -Xmx1024M -XX:MaxPermSize=128M -jar $SPIGOT/spigot.jar
