@@ -44,7 +44,8 @@ ENV RCON=true \
     SET_SERVER_PROPERTIES=true \
     FORCE_REBUILD=false \
     EULA=false \
-    PLUGIN_DYNMAP=true
+    PLUGIN_DYNMAP=true \
+    PLUGIN_MULTIVERSE=true
 
 EXPOSE 25565
 EXPOSE 25575

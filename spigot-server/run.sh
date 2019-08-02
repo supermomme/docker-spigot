@@ -78,12 +78,41 @@ fi
 
 mkdir -p $SPIGOT/plugins
 
-if [ "$PLUGIN_DYNMAP" = true ] && [ ! -f $SPIGOT/plugins/dynmap.jar ]; then
-  cd $SPIGOT/plugins
-  echo "Download DYNMAP"
-  wget -O $SPIGOT/plugins/dynmap.jar http://mikeprimm.com/dynmap/builds/dynmap/Dynmap-HEAD-spigot.jar
-  wget -O $SPIGOT/plugins/dynmap-mobs.jar http://mikeprimm.com/dynmap/builds/dynmap-mobs/dynmap-mobs-HEAD.jar
-  cd $SPIGOT
+## DYNMAP
+
+if [ "$PLUGIN_DYNMAP" = true ]; then
+  if [ ! -f $SPIGOT/plugins/dynmap.jar ]; then
+    echo "Download DYNMAP"
+    wget -O $SPIGOT/plugins/dynmap.jar http://mikeprimm.com/dynmap/builds/dynmap/Dynmap-HEAD-spigot.jar
+  fi
+
+  if [ ! -f $SPIGOT/plugins/dynmap-mobs.jar ]; then
+    echo "Download DYNMAP-MOBS"
+    wget -O $SPIGOT/plugins/dynmap-mobs.jar http://mikeprimm.com/dynmap/builds/dynmap-mobs/dynmap-mobs-HEAD.jar
+  fi
+
+else
+  echo "Removing DYNMAP"
+  rm -f $SPIGOT/plugins/dynmap.jar
+  rm -f $SPIGOT/plugins/dynmap-mobs.jar
+fi
+
+## MUTLIVERSE
+
+if [ "$PLUGIN_MULTIVERSE" = true ]; then
+  if [ ! -f $SPIGOT/plugins/multiverse-core.jar ]; then
+    echo "Download MULTIVERSE-CORE"
+    wget -O $SPIGOT/plugins/multiverse-core.jar https://dev.bukkit.org/projects/multiverse-core/files/latest
+  fi
+
+  if [ ! -f $SPIGOT/plugins/multiverse-portals.jar ]; then
+    echo "Download MULTIVERSE-PORTALS"
+    wget -O $SPIGOT/plugins/multiverse-portals.jar https://dev.bukkit.org/projects/multiverse-portals/files/latest
+  fi  
+else
+  echo "Removing MULTIVERSE"
+  rm -f $SPIGOT/plugins/multiverse-core.jar
+  rm -f $SPIGOT/plugins/multiverse-portals.jar
 fi
 
 echo "RUN!"
